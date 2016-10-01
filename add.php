@@ -20,17 +20,19 @@ $jsonobj = json_decode($jsonstring, true);
         exit("can't select db");
     }
 
+    $user = $jsonobj['username'];
+    //echo $user;
 
     $loc = $jsonobj['location'];
     //echo $loc;
 
-    $time = $jsonobj['datetime'];
+    $date = $jsonobj['date'];
+    //echo $date;
+
+    $time = $jsonobj['time'];
     //echo $time;
 
-    $stat = $jsonobj['status'];
-    //echo $stat;
-
-    $res = mysql_query("INSERT INTO location_table(location, datetime, status) VALUES ('$loc', '$time', '$stat')");
+    $res = mysql_query("INSERT INTO data(username, location, date, time) VALUES ('$user', $loc', '$date', $time')");
     if($res){
         $resp['result']=1; //yes
     }else{
