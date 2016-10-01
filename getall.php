@@ -22,9 +22,10 @@
         $resp['entries']=array();
         while($r = mysql_fetch_array($res)){
             $add=array();
+            $add['username']=$r['username'];
             $add['location']=$r['location'];
-            $add['datetime']=$r['datetime'];
-            $add['status']=$r['status'];
+            $add['date']=$r['date'];
+            $add['time']=$r['time'];
             array_push($resp['entries'], $add);
         }
         $resp['result']=1;
