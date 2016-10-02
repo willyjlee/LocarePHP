@@ -26,7 +26,7 @@ class DB_CONNECT {
  
         // Connecting to mysql database
         //$con = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD) or die(mysql_error());
-        $con = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD);
+        $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD);
 
         // Selecing database
         //$db = mysql_select_db(DB_DATABASE) or die(mysql_error()) or die(mysql_error());
