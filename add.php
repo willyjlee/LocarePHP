@@ -32,7 +32,7 @@ $jsonobj = json_decode($jsonstring, true);
     $time = $jsonobj['time'];
     //echo $time;
 
-    $res = mysql_query("INSERT INTO data(username, location, datestr, timestr) VALUES ('$user', $loc', '$date', $time')");
+    $res = mysqli_query("INSERT INTO data(username, location, datestr, timestr) VALUES ('$user', $loc', '$date', $time')");
     if($res){
         $resp['result']=1; //yes
     }else{

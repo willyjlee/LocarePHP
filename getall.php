@@ -17,10 +17,10 @@
         exit("can't select db");
     }
 
-    $res = mysql_query("SELECT * FROM location_table");
-    if(mysql_num_rows($res)>0){
+    $res = mysqli_query("SELECT * FROM location_table");
+    if(mysqli_num_rows($res)>0){
         $resp['entries']=array();
-        while($r = mysql_fetch_array($res)){
+        while($r = mysqli_fetch_array($res)){
             $add=array();
             $add['username']=$r['username'];
             $add['location']=$r['location'];
