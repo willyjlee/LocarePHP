@@ -24,8 +24,8 @@
             $add=array();
             $add['username']=$r['username'];
             $add['location']=$r['location'];
-            $add['date']=$r['date'];
-            $add['time']=$r['time'];
+            $add['date']=$r['datestr'];
+            $add['time']=$r['timestr'];
             array_push($resp['entries'], $add);
         }
         $resp['result']=1;
