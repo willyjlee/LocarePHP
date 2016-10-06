@@ -4,6 +4,9 @@
  * A class file to connect to database
  */
 class DB_CONNECT {
+
+    //require_once __DIR__ . '/db_config.php';
+ //   public $con = mysqli_connect("localhost", "root", "","locare");
  
     // constructor
     function __construct() {
@@ -22,11 +25,10 @@ class DB_CONNECT {
      */
     function connect() {
         // import database connection variables
-        require_once __DIR__ . '/db_config.php';
- 
+         require_once __DIR__ . '/db_config.php'; 
         // Connecting to mysql database
         //$con = mysql_connect(DB_SERVER, DB_USER, DB_PASSWORD) or die(mysql_error());
-        $con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD);
+        //$con = mysqli_connect(DB_SERVER, DB_USER, DB_PASSWORD,DB_DATABASE);
 
         // Selecing database
         //$db = mysql_select_db(DB_DATABASE) or die(mysql_error()) or die(mysql_error());
@@ -35,18 +37,18 @@ class DB_CONNECT {
         return $con;
     }
 
-    function selectDB(){
+    function selectDB($connection){
         require_once __DIR__ . '/db_config.php';
-        $db = mysqli_select_db(DB_DATABASE);
+        $db = mysqli_select_db($con, DB_DATABASE);
         return $db;
     }
  
     /**
      * Function to close db connection
      */
-    function close() {
+    function close($connection) {
         // closing db connection
-        mysqli_close();
+        mysqli_close($con);
     }
  
 }

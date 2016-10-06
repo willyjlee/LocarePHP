@@ -4,20 +4,20 @@
     
     require_once __DIR__ . '/db_connect.php';
 
-    $con = new DB_CONNECT();
+    $con = mysqli_connect("localhost","root","","locare");
     if($con==FALSE){
         $resp['result'] = -2;
         echo json_encode($resp);
         exit("can't connect to db");
     }
-    $db = DB_CONNECT::selectDB();
+    $db = mysqli_select_db($con, "locare");
     if($db==FALSE){
         $resp['result'] = -1;
         echo json_encode($resp);
         exit("can't select db");
     }
 
-    $res = mysqli_query("SELECT * FROM location_table");
+    $res = mysqli_query($con, "SELECT * FROM data");
     if(mysqli_num_rows($res)>0){
         $resp['entries']=array();
         while($r = mysqli_fetch_array($res)){
@@ -33,5 +33,5 @@
         $resp['result']=0;
     }
     echo json_encode($resp);
-    
+    mysqli_close($con);    
 ?>
